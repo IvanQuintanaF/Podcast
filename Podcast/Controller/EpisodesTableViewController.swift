@@ -43,7 +43,7 @@ extension EpisodesTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! EpisodeCell
         cell.leftImageView.backgroundColor = .cyan
-        cell.label1.text = "Episode \(indexPath.row)"
+        cell.label1.text = "Episode \(indexPath.row+1)"
         return cell
     }
     

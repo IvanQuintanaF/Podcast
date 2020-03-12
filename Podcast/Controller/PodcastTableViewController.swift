@@ -45,6 +45,7 @@ extension PodcastTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! PodcastCell
+        cell.label1.text = "Podcast channel"
         return cell
     }
     

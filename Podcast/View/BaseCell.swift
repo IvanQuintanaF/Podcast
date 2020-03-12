@@ -21,7 +21,6 @@ class BaseCell: UITableViewCell {
     
     let label1: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .cyan
         label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
