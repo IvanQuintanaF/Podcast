@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+class PodcastCell: BaseCell {
+    override func setupViews() {
+        super.setupViews()
+    }
+}

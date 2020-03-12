@@ -17,6 +17,8 @@
 		4889283A241AC66E00C14C96 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48892839241AC66E00C14C96 /* PodcastCell.swift */; };
 		4889283C241AC67B00C14C96 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889283B241AC67B00C14C96 /* EpisodeCell.swift */; };
 		4889283E241AC69F00C14C96 /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889283D241AC69F00C14C96 /* EpisodesTableViewController.swift */; };
+		48892840241AC95400C14C96 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889283F241AC95400C14C96 /* BaseCell.swift */; };
+		48892842241AD59700C14C96 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48892841241AD59700C14C96 /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		48892839241AC66E00C14C96 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
 		4889283B241AC67B00C14C96 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		4889283D241AC69F00C14C96 /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
+		4889283F241AC95400C14C96 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		48892841241AD59700C14C96 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			children = (
 				48892823241AC40E00C14C96 /* PodcastTableViewController.swift */,
 				4889283D241AC69F00C14C96 /* EpisodesTableViewController.swift */,
+				48892841241AD59700C14C96 /* PlayerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 		48892836241AC64C00C14C96 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4889283F241AC95400C14C96 /* BaseCell.swift */,
 				48892839241AC66E00C14C96 /* PodcastCell.swift */,
 				4889283B241AC67B00C14C96 /* EpisodeCell.swift */,
 			);
@@ -186,6 +192,8 @@
 				48892824241AC40E00C14C96 /* PodcastTableViewController.swift in Sources */,
 				48892820241AC40E00C14C96 /* AppDelegate.swift in Sources */,
 				4889283A241AC66E00C14C96 /* PodcastCell.swift in Sources */,
+				48892840241AC95400C14C96 /* BaseCell.swift in Sources */,
+				48892842241AD59700C14C96 /* PlayerViewController.swift in Sources */,
 				48892822241AC40E00C14C96 /* SceneDelegate.swift in Sources */,
 				48892838241AC66000C14C96 /* Models.swift in Sources */,
 				4889283C241AC67B00C14C96 /* EpisodeCell.swift in Sources */,
