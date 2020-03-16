@@ -17,4 +17,12 @@ struct Result: Codable {
     let artistName: String
     let trackName: String
     let artworkUrl600: String
+    let feedUrl: String
+}
+
+struct Episode {
+    let imageURL: String
+    let title: String
+    let duration: Double
+    let url: String
 }

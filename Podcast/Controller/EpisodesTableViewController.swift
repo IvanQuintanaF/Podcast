@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FeedKit
 
 class EpisodesTableViewController: UITableViewController {
     
@@ -16,8 +17,11 @@ class EpisodesTableViewController: UITableViewController {
     var podcast: Result! {
         didSet {
             title = podcast.trackName
+            getEpisodes()
         }
     }
+    
+    var episodes: [Episode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,39 @@ class EpisodesTableViewController: UITableViewController {
         tableView.register(EpisodeCell.self, forCellReuseIdentifier: cellID)
     }
     
+    func getEpisodes() {
+        guard let urlFeed = URL(string: podcast.feedUrl) else {
+            print("invalido")
+            return
+        }
+        
+        let parser = FeedParser(URL: urlFeed)
+        parser.parseAsync { [weak self]  (result)  in
+            switch result {
+            case .success(let feed):
+                let imageURL: String = feed.rssFeed?.image?.url ?? ""
+                for item in feed.rssFeed?.items ?? [] {
+                    
+                    let title: String = item.title ?? ""
+                    let duration = item.iTunes?.iTunesDuration ?? 0
+                    let url = item.enclosure?.attributes?.url ?? ""
+                    
+                    let episode = Episode(imageURL: imageURL, title: title, duration: duration, url: url)
+                    self?.episodes.append(episode)
+                }
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+                
+                break
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                
+            }
+        }
+    }
+    
 }
 
 extension EpisodesTableViewController {
@@ -43,12 +80,12 @@ extension EpisodesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return episodes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! EpisodeCell
-        cell.label1.text = "Episode \(indexPath.row+1)"
+        cell.label1.text = episodes[indexPath.row].title
         return cell
     }
     

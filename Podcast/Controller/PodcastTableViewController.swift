@@ -27,7 +27,7 @@ class PodcastTableViewController: UITableViewController {
         view.backgroundColor = .white
         setupNavigationItems()
         setupTableView()
-        getPodcasts(for: "bbc")
+        getPodcasts(for: "News")
     }
     
     func setupNavigationItems() {
@@ -77,6 +77,9 @@ extension PodcastTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.row < podcasts.count  else {
+            return UITableViewCell()
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! PodcastCell
         cell.podcastInfo = podcasts[indexPath.row]
         return cell
