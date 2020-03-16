@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct ItunesResult: Codable {
+    let resultCount: Int
+    let results: [Result]
+}
+
+struct Result: Codable {
+    let artistName: String
+    let trackName: String
+    let artworkUrl600: String
+}
