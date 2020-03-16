@@ -94,6 +94,7 @@ extension EpisodesTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = PlayerViewController()
+        controller.episode = episodes[indexPath.row]
         let navController = UINavigationController(rootViewController: controller)
         present(navController, animated: true, completion: nil)
     }
