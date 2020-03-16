@@ -88,6 +88,7 @@ extension PodcastTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = EpisodesTableViewController()
+        controller.podcast = podcasts[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }
@@ -95,6 +96,6 @@ extension PodcastTableViewController {
 
 extension PodcastTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        getPodcasts(for: searchText)
     }
 }

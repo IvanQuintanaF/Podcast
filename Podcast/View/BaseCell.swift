@@ -14,7 +14,8 @@ class BaseCell: UITableViewCell {
     let leftImageView: UIImageView = {
         let im = UIImageView()
         im.contentMode = .scaleAspectFill
-        im.backgroundColor = .red
+        im.backgroundColor = .white
+        im.image = UIImage(named: "podcastPlaceholder")
         im.translatesAutoresizingMaskIntoConstraints = false
         return im
     }()

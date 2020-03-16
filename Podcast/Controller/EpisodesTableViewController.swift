@@ -13,6 +13,12 @@ class EpisodesTableViewController: UITableViewController {
     
     let cellID = "cellID"
     
+    var podcast: Result! {
+        didSet {
+            title = podcast.trackName
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -21,7 +27,7 @@ class EpisodesTableViewController: UITableViewController {
     }
     
     func setupNavigationItems() {
-        navigationItem.title = "Episodes"
+//        navigationItem.title = "Episodes"
     }
     
     func setupTableView()  {
@@ -42,7 +48,6 @@ extension EpisodesTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! EpisodeCell
-        cell.leftImageView.backgroundColor = .cyan
         cell.label1.text = "Episode \(indexPath.row+1)"
         return cell
     }
