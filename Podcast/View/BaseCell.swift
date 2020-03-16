@@ -42,8 +42,8 @@ class BaseCell: UITableViewCell {
         addSubview(label1)
         label1.leadingAnchor.constraint(equalTo: leftImageView.trailingAnchor, constant: 10).isActive = true
         label1.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-        label1.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        label1.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        label1.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant:  -10).isActive = true
+        label1.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         label1.text = "Test"
         
