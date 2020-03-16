@@ -20,10 +20,19 @@ class BaseCell: UITableViewCell {
         return im
     }()
     
-    let label1: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let subTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -40,17 +49,41 @@ class BaseCell: UITableViewCell {
         leftImageView.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive = true
         leftImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive = true
         
-        addSubview(label1)
-        label1.leadingAnchor.constraint(equalTo: leftImageView.trailingAnchor, constant: 10).isActive = true
-        label1.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-        label1.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant:  -10).isActive = true
-        label1.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        addSubview(titleLabel)
+        titleLabel.leadingAnchor.constraint(equalTo: leftImageView.trailingAnchor, constant: 10).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant:  -10).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        label1.text = "Test"
+        titleLabel.text = "Title"
+        
+        addSubview(subTitleLabel)
+        subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
+        subTitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
+        subTitleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        subTitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
+        subTitleLabel.text = "Subtitle"
         
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func getAndSetImage(from url: String) {
+        let url = URL(string: url)
+        URLSession.shared.dataTask(with: url!) { [weak self] (data, response, error) in
+            if let error = error {
+                print("error: ", error.localizedDescription)
+                return
+            }
+            if let data = data {
+                let image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self?.leftImageView.image = image
+                }
+            }
+        }.resume()
+        
     }
 }

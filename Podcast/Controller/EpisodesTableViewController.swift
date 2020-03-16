@@ -69,8 +69,7 @@ class EpisodesTableViewController: UITableViewController {
                 
             }
         }
-    }
-    
+    }    
 }
 
 extension EpisodesTableViewController {
@@ -85,7 +84,7 @@ extension EpisodesTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! EpisodeCell
-        cell.label1.text = episodes[indexPath.row].title
+        cell.episode = episodes[indexPath.row]
         return cell
     }
     
